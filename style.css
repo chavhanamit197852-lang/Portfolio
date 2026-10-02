@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap");
+@import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --bg-color: #081b29;
+  --main-color: #00abf0;
+  --text-color: #333;
+  --second-text-color: #555;
+  --white-color: #fff;
+  --cover-color: linear-gradient(45deg, #00abf0, #006e9a);
+  --pages-color: linear-gradient(90deg, #fff, #ddd);
+  --border: .125rem solid #00abf0;
+  --box-shadow: 0 0 .6rem rgba(0,0,0, .2);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.wrapper {
+  position: relative;
+  width: 66rem;
+  height: 45rem;
+  padding: 2rem;
+}
+
+.cover {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: var(--cover-color);
+  box-shadow: var(--box-shadow);
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-top-right-radius: 0;   /* sharp right corners */
+  border-bottom-right-radius: 0;
+  transform-origin: right;
+  top: 0;
+  left: 0;
+}
+
+.cover.cover-left {
+  z-index: -1;
+}
+
+.cover.cover-right.turn {
+  transform: rotateY(180deg);
+}
+
+.self-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: .25rem solid var(--main-color);
+  margin-bottom: 1rem;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.self-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0,171,240,0.6);
+}
+
+.book {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.book .book-page {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: var(--pages-color);
+  box-shadow: 0 0 .6rem rgba(0,0,0, .1);
+  display: flex;
+  padding: 2rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-top-right-radius: 0;   /* sharp right corners */
+  border-bottom-right-radius: 0;
+}
+
+.profile-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-header {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.profile-header h1 {
+  font-size: 2.7rem;
+  line-height: 1.2;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+}
+
+.unique-title {
+  font-family: "Orbitron", sans-serif; /* unique futuristic font */
+  font-size: 1.6rem;
+  color: #ff6600; /* standout color */
+  margin-top: .5rem;
+  margin-bottom: 1rem;
+}
+
+.profile-page p {
+  text-align: center;
+  line-height: 1.6;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+.btn-box {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.btn-cv,
+.btn-contact {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 9.5rem;
+  height: 3rem;
+  background: var(--main-color);
+  border: var(--border);
+  border-radius: .5rem;
+  font-size: 15px;
+  color: var(--white-color);
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* Hover fill effect */
+.btn-cv::before,
+.btn-contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: .5rem;
+  background: linear-gradient(135deg, #00abf0, #006e9a);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.btn-cv:hover::before,
+.btn-contact:hover::before {
+  transform: scaleX(1);
+}
+
+.btn-cv:hover,
+.btn-contact:hover {
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* Social Media Icons */
+.profile-page .social-media {
+  display: flex;
+  gap: 1rem;
+  margin-top: -1.25rem;
+}
+
+.profile-page .social-media a {
+  padding: 10px;
+  display: inline-flex;
+  background: transparent;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-color);
+  font-size: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Icon Colors */
+.linkedin-icon { color: #0A66C2; }
+.linkedin-icon:hover { background: #0A66C2; color: #fff; }
+
+.facebook-icon { color: #1877F2; }
+.facebook-icon:hover { background: #1877F2; color: #fff; }
+
+.instagram-icon { color: #E4405F; }
+.instagram-icon:hover {
+  color: #fff;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.github-icon { color: #333; }
+.github-icon:hover { background: #333; color: #fff; }
+
+.twitter-icon { color: #1DA1F2; }
+.twitter-icon:hover { background: #1DA1F2;color: #fff; }
